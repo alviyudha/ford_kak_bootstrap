@@ -1,0 +1,771 @@
+
+
+@font-face {
+  font-family: 'FordMotion-Bold';
+  src: url('/font/FordMotion-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FordMotion-ExtraLight';
+  src: url('./fonts/FordMotion-ExtraLight.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'FordMotion-Italic';
+  src: url('./font/FordMotion-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'FordMotion-Light';
+  src: url('./font/FordMotion-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'FordMotion-Medium';
+  src: url('./font/FordMotion-Medium.woff2') format('woff2');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FordMotion-Regular';
+  src: url('./font/FordMotion-Regular.woff2') format('woff2');
+}
+
+
+
+
+:root{
+  --color-primary:#00095b ;
+  --color-secondary:rgb(77, 77, 77);
+}
+.text-color-primary{
+    color: var(--color-primary) !important;
+}
+.text-color-secondary{
+    color: var(--color-secondary);
+}
+.bg-white{
+    background-color: #fff;
+}
+p {
+    margin: 0 !important;
+    padding: 0 !important;
+    text-decoration: none;
+}
+
+body{
+    background-color: #f5f5f5;
+    color:var(--color-secondary) ;
+    font-family: 'FordMotion-Regular';
+   
+}
+/* ===================Loading Spinner======================= */
+.loading-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loading-spinner {
+  border: 8px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite, fadeIn 1s ease-out;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.8); }
+  50% { transform: scale(1); }
+}
+
+/* Media query untuk ukuran layar di bawah 600px */
+@media screen and (max-width: 600px) {
+  .loading-spinner-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loading-spinner {
+    margin-top: 20px; /* Sesuaikan margin sesuai kebutuhan */
+  }
+}
+
+
+/* ======================= error page ======================= */
+
+.error-page {
+  background-color: #f8f9fa; /* Ganti warna latar sesuai kebutuhan */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.error-logo {
+  margin-top: 50px; /* Sesuaikan margin sesuai kebutuhan */
+  width: 200px; /* Sesuaikan ukuran sesuai kebutuhan */
+}
+
+.error-heading {
+  color: #dc3545; /* Ganti warna teks sesuai kebutuhan */
+  margin-top: 20px; /* Sesuaikan margin sesuai kebutuhan */
+}
+
+.error-message {
+  color: #6c757d; /* Ganti warna teks sesuai kebutuhan */
+  margin-top: 10px; /* Sesuaikan margin sesuai kebutuhan */
+}
+
+
+
+/* ======================= Navbar ======================= */
+.navbar {
+    padding: 0;
+    background-color: #fff;
+    font-weight: 500;
+}
+.navbar a{
+    color: var(--color-primary);
+}
+.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+
+/* ======================= carousel Slick ======================= */  
+
+
+  #slideCars .slick-slide {
+    transform: scale(0.4);
+    transition: all 0.4s ease-in-out;
+    padding: 40px 0;
+  }
+
+
+  #slideCars .slick-slide img {
+    max-width: 100%;
+    transition: all 0.4s ease-in-out;
+  }
+
+  #slideCars .slick-center {
+    transform: scale(1.8);
+  }
+  @media screen and (max-width: 576px) {
+    #slideCars .slick-center {
+      transform: scale(1.2);
+    }
+  }
+  @media screen and (max-width: 600px) {
+    #slideCars .slick-center {
+      transform: scale(1.2);
+    }
+  }
+  #slideCars .slick-prev:before,#slideCars .slick-next:before{
+      color: var(--color-primary);
+      font-size: 25px;
+  }
+  #slideCars .btn:hover{
+    color: white;
+    background-color: var(--color-primary);
+    transition: all 1s;
+  }
+/* ======================= Slide Image ======================= */
+
+#carouselSlideFord    #btnGroup {
+  position: absolute;
+  bottom: 10px;
+  right: 8%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+#carouselSlideFord    #btnGroup:hover {
+  
+  z-index: 1001;
+}
+#carouselSlideFord    #btnGroup:hover button{
+  
+  opacity: 1;
+}
+#carouselSlideFord #btnGroup button {
+  border: none;
+  background-color: #00095b;
+  opacity: 0.7;
+  border-radius: 8px;
+  padding: 3%;
+}
+#carouselSlideFord #btnGroup .btn-prev-custom {
+  margin-right: 40px;
+}
+
+/* ======================= page home/produk ======================= */
+.section-custom{
+    margin-top: 50px;
+    padding: 2%;
+}
+.section-custom#section-produk h2{
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* ======================= tab ======================= */
+#tabProduct .nav-link{
+    color: var(--color-primary) !important;
+    font-weight: 500;
+    font-size: 20px;
+}
+#tabProduct .nav-item .nav-link{
+  font-family: "FordMotion-Bold";
+}
+
+  /* ===================Footer======================= */
+  .footer {
+    color: #fff;
+    font-size: 16px;
+    background: rgb(0,9,91);
+    background: linear-gradient(27deg, rgba(0,9,91,1) 64%, rgba(255,255,255,1) 69%);
+  }
+ 
+  @media (max-width: 991.33px) {
+    .footer {
+        background: rgb(236,236,236);
+background: linear-gradient(0deg, rgba(236,236,236,1) 45%, rgba(0,9,91,1) 60%);
+    }
+}
+  .footer .footer-content {
+    padding: 30px 0 15px 0;
+  }
+  
+  .footer .footer-content .footer-info {
+    margin-bottom: 30px;
+  }
+  
+  .footer .footer-content .footer-info h3 {
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    padding: 2px 0 2px 0;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  
+  .footer .footer-content .footer-info p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 0;
+    color: #fff;
+    font-weight: 400;
+  }
+  
+  .footer .footer-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+  }
+  
+  .footer .footer-content h4::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background:#fff;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .footer .footer-content .footer-links {
+    margin-bottom: 30px;
+  }
+  
+  .footer .footer-content .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer .footer-content .footer-links ul svg {
+    padding-right: 2px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+  }
+  
+  
+  
+  .footer .footer-content .footer-links  a {
+    color: #fff;
+    transition: 0.3s;
+    display: inline-block;
+    line-height: 1;
+    margin-left: 5px;
+  }
+  
+  .footer .footer-content .footer-links  a:hover {
+    color:#fff;
+  }
+  
+  
+  .footer .footer-legal {
+    padding: 30px 0;
+    background: #fff;
+    color: var(--color-primary);
+  }
+/*   
+  .footer .footer-legal .credits {
+    padding-top: 4px;
+    font-size: 13px;
+    color: var(--color-white);
+  } */
+  
+  /* .footer .footer-legal .credits a {
+    color: var(--color-primary-light);
+  } */
+  
+  .footer .footer-legal .social-links a {
+    font-size: 24px;
+    display: inline-block;
+    background: rgba(var(--color-white-rgb), 0.1);
+    color: var(--color-white);
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+  
+  .footer .footer-legal .social-links a:hover {
+    background: var(--color-primary);
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .footer .footer-links a {
+    cursor: pointer;
+  }
+  
+
+
+  /* ===================Models/tab======================= */
+
+  .vehicles-selection{
+    padding-top: 10%;
+  }
+  .box-tab-secvehicles{
+   /* border: 1px solid #00095b; */
+   background-color: #00095b;
+   margin-bottom: 20px;
+  }
+  #nav-tab .nav-link-sec {
+    color: #fff;
+    border-radius: 0;
+  }
+  .box-tab-secvehicles .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link-sec.active{
+    color: #00095b !important;
+  }
+  .card-vehicles{
+    padding: 2%;
+  }
+  .card-vehicles:hover{
+    box-shadow: 0 3px 20px rgba(0, 9, 91, 0.75);
+    /* padding: 5px ; */
+    transition: all .2s;
+    /* padding: 0px ; */
+  }
+  .vehicles-card-caption{
+    font-weight: bold;
+    color: rgb(0, 9, 91);
+  }
+  
+  /* features vehicles */
+  .feature-vehicles{
+    padding: 20px;
+  }
+  .border-right-custom{
+  border-right: 1px solid #00095b;
+  }
+  .btn-brochure-blue{
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    background-color: #00095b;
+    /* padding: 8px 50px; */
+    border-radius: 2rem;
+  }
+  
+  .custom-col-w0{
+    /* width: auto; */
+    /* padding: 10px 10px; */
+    /* margin-right: 10px; */
+    margin: 15px;
+  }
+  .btn-vehicles{
+    background-color: #fff;
+    border-radius: 2rem;
+    color: yellow !important;
+  }
+  /* 
+  content vehicles */
+  .card-body-vehicles{
+    margin: 8px 0;
+  }
+  .card-title-custom{
+    color: #00095b;
+    font-size: 24px;
+  
+  }
+  .card-text-vehicles{
+    font-size: 16px;
+    color: #4d4d4d;
+    font-weight: 430;
+  }
+  /* selection vehicles */
+  .type-car-selection{
+    background-color: #00095b;
+    color: #fff;
+    padding: 8px 32px;
+    border-radius: 2rem;
+    margin-bottom: 18%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .title-select-car{
+    color: #00095b;
+    font-weight: bolder;
+    font-size: 24px;
+    /* margin: 0; */
+  }
+  #buttonColor .btn{
+    border-radius: 15%;
+    background-color: #fe1e4f;
+    padding: 5.1%;
+    margin: 2px;
+    box-shadow: 0 4px 6px 0 rgba(0,0,0,0.3);
+    /* visibility: hidden; */
+  }
+  
+  
+  /* ===================Models details/color ======================= */
+  #pageColorCars .pageColorHeader{
+    color:#263238;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: xx-large;
+    text-shadow: 5px -20px rgba(var(--text-secondary-rgb),0.2);
+  }
+  #pageColorCars .title-cars{
+    color:var(--text-secondary);
+  }
+  #pageColorCars .btn-colors {
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    border: none; 
+    border-radius: 50%;
+    box-shadow: 1px 1px 5px var(--color-primary); 
+  }
+  
+  #pageColorCars .btn-colors:hover {
+    transform: scale(1.1);
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  .descColor{
+    font-weight: 600;
+    color: #575c61;
+    text-shadow: 0.5px 0.5px var(--color-primary);
+  }
+  #pageColorCars .row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* ===================Models details/tab-type-cars ======================= */
+
+  .tabs-type-cars{
+    background-color: #fff;
+    padding: 10px;
+  }
+  .tabs-type-cars .nav-link{
+    
+    transition: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: var(--bs-box-shadow)!important;
+    margin-right: 5px ;
+  }
+  .tabs-type-cars .nav-link:hover{
+    background-color: #00095b;
+    color: #fff;
+  }
+  .tabs-type-cars li a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .tabs-type-cars .nav-link.active-cust {
+    color: #fff;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+  }
+ 
+  /* ===================Models details/tab featur ======================= */
+
+  #tabModelsDetail button{
+    color: var(--color-primary);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: large;
+  }
+  #tabModelsDetail button:hover{
+    color: var(--color-primary);
+  }
+  #tabModelsDetail a{
+    color: #263238;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: large;
+  }
+  #tabModelsDetail a:hover{
+    color: var(--color-primary);
+  }
+  #tabModelsDetail button.active{
+    color: var(--color-primary);
+  }
+
+/* ===================Models details/tab detail / design ======================= */
+  #tabDesign .card{
+    border: none;
+    -webkit-box-shadow: -6px 3px 74px -20px rgba(0,9,91,1);
+-moz-box-shadow: -6px 3px 74px -20px rgba(0,9,91,1);
+box-shadow: -6px 3px 74px -20px rgba(0,9,91,1);
+  }
+
+/* ===================social share ======================= */
+  #fixed-social .social{
+    z-index: 999;
+  }
+  
+  #fixed-social  ul.social{
+    list-style: none;
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+   
+  }
+  #fixed-social ul li{
+    margin: 5px 0;
+    
+  }
+  #fixed-social  ul li a{
+    text-decoration: none;
+    color: #fff;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    
+  }
+  #fixed-social  ul li a span:nth-child(2){
+    background: #00095b;
+    width: 40px;
+    height: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    
+    /* padding: 5px; */
+  }
+  
+  #fixed-social  ul li a span:nth-child(1){
+    width: 0;
+    height: 100%;
+    background: #00095b;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding-left: 0;
+    letter-spacing: 2px;
+    overflow: hidden;
+    margin-right: 5px;
+    border-radius: 50px 0px 0px 50px;
+    transition: 0.8s ease;
+  }
+  #fixed-social ul li a:hover span:nth-child(1){
+    width: 180px;
+    padding-left: 20px;
+  }
+  /* instagram */
+  /* #fixed-social  ul li:nth-child(2) a span:nth-child(1),
+  #fixed-social ul li:nth-child(2) a span:nth-child(2){
+    background: #00095b;
+  } */
+  /* twitter */
+  /* #fixed-social ul li:nth-child(3) a span:nth-child(1),
+  #fixed-social ul li:nth-child(3) a span:nth-child(2){
+    background: #00095b;
+  } */
+  /* GitHub */
+  /* #fixed-social ul li:nth-child(4) a span:nth-child(1),
+  #fixed-social ul li:nth-child(4) a span:nth-child(2){
+    background: #00095b;
+  } */
+  /* Linkedin */
+  /* #fixed-social ul li:nth-child(5) a span:nth-child(1),
+  #fixed-social ul li:nth-child(5) a span:nth-child(2){
+    background: #00095b;
+  } */
+  
+
+  
+  /* ===================Service Form======================= */
+  .BookingServices {
+    padding: 5% 25% ;
+    background-color: white;
+  }
+  .BookingServices .box-form{
+    margin: 0 auto;
+    padding: 20px;
+  }
+  @media screen and (max-width: 768px) {
+    .BookingServices {
+      padding: 0 5%; 
+    }
+  
+    .BookingServices .box-form {
+      margin: 10% auto;
+      padding: 20px;
+      max-width: 100%; 
+    }
+  }
+  
+  /* Media query untuk layar berukuran kecil */
+  @media screen and (max-width: 576px) {
+    .BookingServices {
+      padding: 0 10% ;
+    }
+    .BookingServices .box-form{
+      margin: 10% auto;
+      padding: 20px;
+    }
+  }
+
+/* ===================Dealer======================= */
+#Dealer .card-footer a {
+  color: #00095b; /* Primary link color */
+  margin-right: 4%;
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+#Dealer .card-footer a:hover {
+  color: #ff5733; /* Change color on hover (example: bright orange) */
+  transform: scale(1.2); /* Slightly enlarge the icon on hover */
+}
+#Dealer .box-tab-carousel {
+  border: 1px solid #00095b;
+  border-radius: 2rem;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#cardDealer {
+  transition: transform 0.75s ease, box-shadow 0.5s ease;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+#cardDealer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================Dealer/tabs======================= */
+#nav-tab-dealer .nav-tabs .nav-item.show .nav-link,
+#nav-tab-dealer .nav-tabs .nav-link.active {
+  background-color: #00095b; /* Active tab color */
+  color: #fff; /* Active text color */
+  border-radius: 1rem; /* Rounded tabs */
+}
+
+#nav-tab-dealer .nav-tabs .nav-link {
+  color: #00095b; /* Inactive tab color */
+  font-weight: 600;
+  border-radius: 1rem; /* Rounded tabs */
+  padding: 0.75rem 1.5rem; /* More padding for a modern look */
+}
+
+#nav-tab-dealer .nav-link:hover {
+  background-color: #00095b; /* Hover color */
+  color: white; /* Hover text color */
+}
+
+/* ===================Card Styles======================= */
+.card {
+  border: none; /* No border for modern look */
+  border-radius: 1rem; /* Rounded corners */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.card-img-top {
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Cover image within bounds */
+}
+
+.card-title {
+  font-size: 1.25rem; /* Larger font size */
+  font-weight: 600; /* Bold title */
+  margin-bottom: 0.5rem; /* Space below title */
+}
+
+.card-text {
+  font-size: 1rem; /* Standard font size */
+  color: #555; /* Dark gray text for readability */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  #nav-tab-dealer .nav-tabs .nav-link {
+    padding: 0.5rem 1rem; /* Adjust padding for smaller screens */
+  }
+}
+  
+
+
+  /* test */
+  #carouselHome .carousel-control-next-icon,#carouselHome .carousel-control-prev-icon {
+  background-color: #00095b;
+  position: absolute;
+  top: 80%;
+  }
+  #carouselHome .carousel-control-prev-icon{
+    position: absolute;
+    right: -480% !important;
+  }
+  #carouselHome .carousel-indicators [data-bs-target] {
+
+    background-color: #00095b;
+    
+  height: 10px !important;
+  width: 10px !important;
+  border-radius: 50%;
+  }
