@@ -769,3 +769,36 @@ box-shadow: -6px 3px 74px -20px rgba(0,9,91,1);
   width: 10px !important;
   border-radius: 50%;
   }
+
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f7f7f7;
+  }
+  
+  .loading-spinner {
+    width: 80px;
+    height: 80px;
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #003399; /* Ford blue */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loading-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #003399; /* Ford blue */
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  

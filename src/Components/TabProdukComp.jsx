@@ -4,6 +4,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import SlickCarouselComp from './SlickCarouselComp';
 import api from '../utils/api';
+import LoadingDataComp from './LoadingDataComp';
 
 export default function TabProdukComp() {
   const [dataTrim, setDataTrim] = useState(null);
@@ -13,7 +14,7 @@ export default function TabProdukComp() {
     const fetchData = async () => {
       try {
         const data = await api.getDataTrimGroup();
-        setDataTrim(data); // Simpan data API ke state
+        setDataTrim(data); 
         setIsLoading(false);
       } catch (err) {
         console.error("Error fetching trim group:", err);
@@ -24,8 +25,8 @@ export default function TabProdukComp() {
     fetchData();
   }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
+  if (!isLoading) {
+    return <LoadingDataComp />;
   }
 
   if (error) {

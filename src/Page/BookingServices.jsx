@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import FormServicesComp from '../Components/FormServicesComp';
 import api from '../utils/api';
+import LoadingDataComp from '../Components/LoadingDataComp';
 
 export default function BookingServices() {
   const [dropdownData, setdropdownData] = useState(null); 
@@ -19,7 +20,7 @@ export default function BookingServices() {
     fetchDropdownData();
   }, []);
   if (!dropdownData) {
-    return <div>Loading...</div>;
+    return <LoadingDataComp />;
   }
 
   return (

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../utils/api';
+import LoadingDataComp from './LoadingDataComp';
 
 export default function SlideImgComp() {
   const [bgSlide, setBgSlide] = useState([]);
@@ -16,6 +17,9 @@ export default function SlideImgComp() {
 
     fetchData();
   }, []);
+  if (!bgSlide) {
+    return <LoadingDataComp />;
+  }
 
   return (
     <div id="carouselSlideFord" className="carousel slide carousel-fade" data-bs-ride="carousel">

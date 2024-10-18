@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../utils/api'; 
+import LoadingDataComp from '../Components/LoadingDataComp';
 
 export default function Models() {
   const [vehicleData, setVehicleData] = useState([]); 
@@ -21,7 +22,9 @@ export default function Models() {
 
     fetchVehicleData(); 
   }, []); 
-
+  if (!vehicleData) {
+    return <LoadingDataComp />;
+  }
   return (
     <>
       <section className="section-custom" style={{ marginTop: '30px' }} id="section-secvehicles">

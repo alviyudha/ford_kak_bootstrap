@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TestDriveComp from '../Components/TestDriveComp'
 import api from '../utils/api';
+import LoadingDataComp from '../Components/LoadingDataComp';
 
 export default function BookingTestDrive() {
   const [dropdownData, setdropdownData] = useState(null); 
@@ -19,7 +20,7 @@ export default function BookingTestDrive() {
     fetchDropdownData();
   }, []);
   if (!dropdownData) {
-    return <div>Loading...</div>;
+    return <LoadingDataComp />;
   }
   return (
     <>
