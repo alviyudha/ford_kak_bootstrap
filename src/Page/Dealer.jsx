@@ -1,7 +1,7 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import TabDealerComp from '../Components/TabDealerComp';
 import api from '../utils/api';
+import LoadingDataComp from '../Components/LoadingDataComp';
 
 export default function Dealer() {
   const [dealer, setDealer] = useState()
@@ -17,6 +17,9 @@ export default function Dealer() {
     }
     fetchData()
   },[])
+  if (!dealer) {
+    return <LoadingDataComp />;
+  }
   return (
     <>
       <div id="Dealer">
