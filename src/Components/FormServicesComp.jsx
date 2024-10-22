@@ -14,7 +14,7 @@ export default function FormServiceComp({ bookingProps }) {
     dealer: 'Pilih Dealer',
     DateService: '',
     inputMessage: '',
-    address: '', // Tambahkan field address di formData
+    address: '', 
   });
 
   const handleSubmit = async (e) => {
@@ -36,8 +36,8 @@ export default function FormServiceComp({ bookingProps }) {
       dealer,
       dateInput: DateService,
       inputMessage,
-      catMessage: 'service', 
-      address, // Sertakan address dalam data
+      catMessage: 'services', 
+      address,
     };
 
     try {
@@ -162,8 +162,8 @@ export default function FormServiceComp({ bookingProps }) {
         <Form.Control
           as="textarea"
           rows={3}
-          name="address" // Ubah name menjadi address
-          value={formData.address} // Ubah value menjadi formData.address
+          name="address" 
+          value={formData.address} 
           onChange={handleInputChange}
           placeholder="Masukkan Alamat Anda"
         />

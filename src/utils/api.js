@@ -72,7 +72,7 @@ const api = (() => {
 
   const getDataTrimGroup = async () => {
     try {
-      const response = await axiosInstance.get(`/trimgroup`);
+      const response = await axiosInstance.get('/trimgroup');
       return response.data;
     } catch (error) {
       console.error("Error fetching trim group:", error);

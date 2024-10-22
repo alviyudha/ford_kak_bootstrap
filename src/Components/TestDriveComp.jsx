@@ -2,9 +2,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
 import { useState } from 'react';
-import api from '../utils/api'; // Import the inputMessage function
+import api from '../utils/api';
 
-export default function TestDriveComp({ serviceProps }) {
+export default function TestDriveComp({ testDriveProps }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,7 +60,7 @@ export default function TestDriveComp({ serviceProps }) {
       if (response) {
         alert('Data terkirim');
 
-        const selectedDealer = serviceProps.datadealer.find(d => d.name === dealer);
+        const selectedDealer = testDriveProps.datadealer.find(d => d.name === dealer);
         if (selectedDealer) {
           const whatsappNumber = selectedDealer.whatsapp;
           const messageWa = `Halo, Saya ${name} ingin Test Drive *${carModel}* .\nEmail: ${email}\nTelp: ${telp}.\nDealer yang diinginkan: ${dealer}.\nJadwal Test Drive: ${dateTestDrive}\nPesan: ${inputMessage}`;
@@ -131,7 +131,7 @@ export default function TestDriveComp({ serviceProps }) {
             onChange={handleInputChange}
           >
             <option value="Jenis Kendaraan">Jenis Kendaraan</option>
-            {serviceProps.datatrim.map((trim, index) => (
+            {testDriveProps.datatrim.map((trim, index) => (
               <option key={index} value={trim.linkPage}>{trim.linkPage}</option>
             ))}
           </Form.Control>
@@ -157,7 +157,7 @@ export default function TestDriveComp({ serviceProps }) {
           onChange={handleInputChange}
         >
           <option value="Pilih Dealer">Pilih Dealer</option>
-          {serviceProps.datadealer.map((dealer, index) => (
+          {testDriveProps.datadealer.map((dealer, index) => (
             <option key={index} value={dealer.name}>{dealer.name}</option>
           ))}
         </Form.Control>

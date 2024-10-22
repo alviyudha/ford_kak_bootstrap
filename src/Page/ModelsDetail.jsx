@@ -1,41 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchModelDetail } from "../state/modeldetail/action";
 import ColorModelsComp from "../Components/ColorModelsComp";
 import TabCarsDetail from "../Components/TabCarsDetail";
 import TabTypeCars from "../Components/TabTypeCars";
 import YoutubeFrameComp from "../Components/YoutubeFrameComp";
-import api from "../utils/api";
 import ModelSpecComp from "../Components/ModelSpecComp";
 import LoadingDataComp from "../Components/LoadingDataComp";
 
 export default function ModelsDetail() {
   const { linkpage } = useParams(); 
-  const [modelData, setModelData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  
+  const { modelData, loading, error } = useSelector((state) => state.modelDetail); // Sesuaikan dengan reducer di store
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await api.getDataDetail(linkpage);
-        console.log("Fetched data:", response);
-        setModelData(response.data);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [linkpage]);
+    dispatch(fetchModelDetail(linkpage));
+  }, [dispatch, linkpage]);
 
   if (loading) return <LoadingDataComp />;
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <p>Error: {error}</p>;
 
   if (!modelData) return <p>No data available</p>;
+
   const {
     urlBackgroundImg,
     colorsData,

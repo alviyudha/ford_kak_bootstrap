@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import NavbarComp from './src/Components/NavbarComp';
 import Footer from './src/Components/Footer';
 import SocialShareComp from './src/Components/SocialShareComp';
-import LoadingSpinner from './src/Components/LoadingSpinner';
+import LoadingDataComp from './src/Components/LoadingDataComp';
 const LayoutFE = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -18,7 +18,7 @@ const LayoutFE = () => {
   return (
     <div>
       {isLoading ? (
-        <LoadingSpinner />
+        <LoadingDataComp />
       ) : (
         <div>
           <NavbarComp />
