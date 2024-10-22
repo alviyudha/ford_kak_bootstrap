@@ -1,35 +1,33 @@
-import  { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import TabDealerComp from '../Components/TabDealerComp';
-import api from '../utils/api';
 import LoadingDataComp from '../Components/LoadingDataComp';
+import { fetchDealerData } from '../state/dealer/action';
 
 export default function Dealer() {
-  const [dealer, setDealer] = useState()
+  const dispatch = useDispatch();
+  const { dealerData, loading, error } = useSelector(state => state.dealer);
+
   useEffect(() => {
-    const fetchData = async () =>{
-    try {
-      const response = await api.getDealer()
-      setDealer(response)
-      // console.log("Dealer data:", JSON.stringify(response, null, 2));
-    } catch (error) {
-      console.error("Error fetching Dealer Data:", error)
-    }
-    }
-    fetchData()
-  },[])
-  if (!dealer) {
+    dispatch(fetchDealerData());
+  }, [dispatch]);
+
+  if (loading) {
     return <LoadingDataComp />;
   }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <>
-      <div id="Dealer">
-        <img src="images/FORD-Dealer.jpg" alt="Ford Dealer" className="img-fluid p-5 bg-white" />
-        <div className="dealer bg-white p-3 text-color-primary">
-          <h1 className="text-center">Dealer Location</h1>
-          <TabDealerComp dataDealer={dealer} />
-        </div>
-        <div className="gMaps text-center mt-3 bg-white p-5"></div>
+    <div id="Dealer">
+      <img src="images/FORD-Dealer.jpg" alt="Ford Dealer" className="img-fluid p-5 bg-white" />
+      <div className="dealer bg-white p-3 text-color-primary">
+        <h1 className="text-center">Dealer Location</h1>
+        <TabDealerComp dataDealer={dealerData} />
       </div>
-    </>
+      <div className="gMaps text-center mt-3 bg-white p-5"></div>
+    </div>
   );
 }

@@ -1,26 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import FormServicesComp from '../Components/FormServicesComp';
-import api from '../utils/api';
 import LoadingDataComp from '../Components/LoadingDataComp';
+import { fetchBookingServices } from '../state/bookingService/action';
 
 export default function BookingServices() {
-  const [dropdownData, setdropdownData] = useState(null); 
+  const dispatch = useDispatch();
+  const { loading, bookingServicesData, error } = useSelector((state) => state.bookingServices);
 
   useEffect(() => {
-    const fetchDropdownData = async () => {
-      try {
-        const response = await api.getDropdownData();
-        setdropdownData(response);
-        console.log('Dropdown Data:', JSON.stringify(response, null, 2));
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    dispatch(fetchBookingServices());
+  }, [dispatch]);
 
-    fetchDropdownData();
-  }, []);
-  if (!dropdownData) {
+  if (loading) {
     return <LoadingDataComp />;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
   }
 
   return (
@@ -30,7 +27,7 @@ export default function BookingServices() {
         <p className='text-color-gray'>
           Untuk Booking tanggal service, Silahkan lengkapi data Anda pada form Booking Service dibawah ini.
         </p>
-        <FormServicesComp bookingProps={dropdownData} /> 
+        {bookingServicesData && <FormServicesComp bookingProps={bookingServicesData} />}
       </div>
     </main>
   );

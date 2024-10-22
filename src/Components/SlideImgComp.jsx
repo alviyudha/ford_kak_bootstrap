@@ -1,24 +1,22 @@
-import { useEffect, useState } from 'react';
-import api from '../utils/api';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSlides } from '../state/imgslide/action'; // Adjust the import path accordingly
 import LoadingDataComp from './LoadingDataComp';
 
 export default function SlideImgComp() {
-  const [bgSlide, setBgSlide] = useState([]);
+  const dispatch = useDispatch();
+  const { bgSlide, isLoading, error } = useSelector((state) => state.imgSlide);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await api.getImgSlideHome(); 
-        setBgSlide(data);
-      } catch (error) {
-        console.error("Error fetching image slides:", error);
-      }
-    };
+    dispatch(fetchSlides());
+  }, [dispatch]);
 
-    fetchData();
-  }, []);
-  if (!bgSlide) {
+  if (isLoading) {
     return <LoadingDataComp />;
+  }
+
+  if (error) {
+    return <div>Error fetching image slides: {error}</div>;
   }
 
   return (

@@ -1,51 +1,43 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTabProduct } from '../state/tabproduct/action';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import SlickCarouselComp from './SlickCarouselComp';
-import api from '../utils/api';
 import LoadingDataComp from './LoadingDataComp';
 
 export default function TabProdukComp() {
-  const [dataTrim, setDataTrim] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await api.getDataTrimGroup();
-        setDataTrim(data); 
-        setIsLoading(false);
-      } catch (err) {
-        console.error("Error fetching trim group:", err);
-        setError(err);
-        setIsLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+  const dispatch = useDispatch();
+  const { dataTrim, loading, error } = useSelector(state => state.tabProduct);
 
-  if (!isLoading) {
+  useEffect(() => {
+    dispatch(fetchTabProduct());
+  }, [dispatch]);
+
+  if (loading) {
     return <LoadingDataComp />;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>; 
+    return <div>Error: {error}</div>;
   }
 
   return (
-    <div id="tabProduct" >
-      <Tabs
-        defaultActiveKey="Ford Ranger"
-        id="fill-tab-example"
-        className="mb-3 mt-5"
-        fill
-      >
+    <div id="tabProduct">
+      <Tabs defaultActiveKey="Ford Ranger" id="fill-tab-example" className="mb-3 mt-5" fill>
         <Tab eventKey="Ford Ranger" title="Ford Ranger">
-          <SlickCarouselComp getDatatypeProf={dataTrim?.Ranger} />
+          {dataTrim?.Ranger?.length > 0 ? (
+            <SlickCarouselComp getDatatypeProf={dataTrim.Ranger} />
+          ) : (
+            <div>No Ranger data</div>
+          )}
         </Tab>
         <Tab eventKey="Ford Everest" title="Ford Everest">
-          <SlickCarouselComp getDatatypeProf={dataTrim?.Everest} />
+          {dataTrim?.Everest?.length > 0 ? (
+            <SlickCarouselComp getDatatypeProf={dataTrim.Everest} />
+          ) : (
+            <div>No Everest data</div>
+          )}
         </Tab>
       </Tabs>
     </div>
