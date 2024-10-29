@@ -804,3 +804,77 @@ box-shadow: -6px 3px 74px -20px rgba(0,9,91,1);
   
 
   
+
+  /* AppNavbar.css */
+
+.navbar-custom {
+  background-color: #343a40;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-custom .navbar-brand {
+  font-size: 1.25rem;
+  color: #ffffff !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+  color: #00aaff !important;
+}
+
+.navbar-custom .nav-link-custom {
+  color: #adb5bd;
+  font-weight: 500;
+  transition: color 0.3s ease, background 0.3s ease;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.navbar-custom .nav-link-custom:hover {
+  color: #00aaff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-custom .custom-button {
+  color: #00aaff;
+  border-color: #00aaff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-custom .custom-button:hover {
+  background-color: #00aaff;
+  color: #fff;
+}
+
+.navbar-custom .custom-search {
+  background-color: #495057;
+  color: #fff;
+  border-color: #343a40;
+}
+
+.navbar-custom .custom-search::placeholder {
+  color: #adb5bd;
+}
+
+.offcanvas-body {
+  background-color: #343a40;
+}
+
+.offcanvas-header .btn-close {
+  color: #ffffff;
+}
+
+/* Style for the navbar toggle button */
+.navbar-toggler {
+  background-color: #ffffff; /* Background color of toggle button */
+  border: none; /* Remove border */
+  border-radius: 0; /* Remove rounded corners */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Hamburger icon */
+}
+
+.navbar-toggler:hover {
+  background-color: #e7e7e7; /* Slightly lighter on hover */
+}
