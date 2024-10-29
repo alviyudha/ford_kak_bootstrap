@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import NavbarComp from './src/Components/NavbarComp';
-import Footer from './src/Components/Footer';
-import SocialShareComp from './src/Components/SocialShareComp';
-import LoadingDataComp from './src/Components/LoadingDataComp';
+import Footer from './src/frontend/Components/Footer';
+import SocialShareComp from './src/frontend/Components/SocialShareComp';
+import LoadingDataComp from './src/frontend/Components/LoadingDataComp';
+import NavbarComp from './src/frontend/Components/NavbarComp';
 const LayoutFE = () => {
   const [isLoading, setIsLoading] = useState(true);
 
