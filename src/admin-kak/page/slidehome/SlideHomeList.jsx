@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../utils/api";
-import ModalConf from "../../component/modalConf";
+import ModalConf from "../../component/ModalConfirmnew";
 import ToastComp from "../../component/ToastComp";
 import { useNavigate } from "react-router-dom";
 

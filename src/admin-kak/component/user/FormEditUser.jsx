@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../utils/api";
 import ToastComp from "../ToastComp";
-import ModalConf from "../ModalConf";
+import ModalConf from "../ModalConfirmnew";
 
 function FormEditUser() {
   const [user, setUser] = useState({

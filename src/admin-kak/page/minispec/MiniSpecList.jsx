@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 import ToastComp from "../../component/ToastComp";
 import { Pagination } from "react-bootstrap";
-import ModalConf from "../../component/ModalConf";
+import ModalConf from "../../component/ModalConfirmnew";
 
 function MiniSpecList() {
   const [miniSpecs, setMiniSpecs] = useState([]);
