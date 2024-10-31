@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../../utils/api";
-import ModalConf from "../../component/ModalConf";
+import ModalConf from "../../component/ModalConfirmnew";
 import ToastComp from "../../component/ToastComp";
 import { Pagination } from "react-bootstrap";
 

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import api from "../../utils/api";
 import ToastComp from "../ToastComp";
-import ModalConf from "../modalConf";
+import ModalConf from "../ModalConfirmnew";
 
 function FormEditSlideHome() {
   const { id } = useParams();

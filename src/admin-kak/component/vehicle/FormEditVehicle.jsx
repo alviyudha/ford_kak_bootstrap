@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../utils/api";
 import ToastComp from "../ToastComp";
-import ModalConf from "../modalConf";
+import ModalConf from "../ModalConfirmnew";
 
 function FormEditVehicle() {
   const [vehicle, setVehicle] = useState({ model: "", year: "", type: "" });

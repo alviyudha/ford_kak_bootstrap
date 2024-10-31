@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
-import ModalConf from "../../component/modalConf";
+import ModalConf from "../../component/ModalConfirmnew";
 
 function DealerList() {
   const [dealers, setDealers] = useState([]);

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../../utils/api";
 import ToastComp from "../ToastComp";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ModalConf from "../modalConf";
+import ModalConf from "../ModalConfirmnew";
 
 function FormEditTrim() {
   const { id } = useParams();
